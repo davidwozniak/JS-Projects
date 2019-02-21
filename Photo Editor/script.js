@@ -1,8 +1,33 @@
-var canvas = document.querySelector('canvas');
-var c = canvas.getContext('2d');
+
+var ctx = document.getElementById('upload').onchange = function(e) {
+  var img = new Image();
+  img.onload = draw;
+  img.onerror = failed;
+  img.src = URL.createObjectURL(this.files[0]);
+};
+
+
+function draw() {
+  var canvas = document.getElementById('editor');
+  canvas.width = this.width;
+  canvas.height = this.height;
+  ctx = canvas.getContext('2d');
+  ctx.drawImage(this, 0,0);
+}
+
+function failed() {
+  console.error("The provided file couldn't be loaded as an Image media");
+}
 
 
 
+ctx.addEventListener('mousedown', onDown, false);
+
+function onDown(event){
+    cx = event.
+    cy = event.pageY;
+    console.log(cx+","+cy);
+}
 
 //#region Slider Value
 //slider
