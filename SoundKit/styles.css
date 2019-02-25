@@ -1,0 +1,14 @@
+.button {
+    background-color: darkslategrey;
+    width: 100px;
+    height: 120px;
+    margin: 0.5em;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.container {
+    margin-top: 5em;
+}

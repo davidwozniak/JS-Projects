@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Soundkit</title>
+</head>
+<body>
+    <audio src="sounds/808_clap.wav" autostart="false" id="Clap"></audio>
+    <audio src="sounds/808_cowbell.wav" autostart="false" id="Cowbell"></audio>
+    <audio src="sounds/808_hihatclosed.wav" autostart="false" id="Hihat"></audio>
+    <audio src="sounds/808_kick.wav" autostart="false" id="Kick"></audio>
+    <audio src="sounds/808_snare.wav" autostart="false" id="Snare"></audio>
+    <audio src="sounds/808_tom.wav" autostart="false" id="Tom"></audio>
+
+    
+    <nav class="navbar navbar-light bg-dark">
+            <button class="btn btn-outline-success btn-lg" type="button">Play</button>
+            <button class="btn btn-outline-danger btn-lg" type="button">Record</button>
+      </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <button type="button" class="button" onclick ="playSample('Clap')">Clap</button>
+            <button type="button" class="button" onclick ="playSample('Cowbell')">Cowbell</button>
+            <button type="button" class="button" onclick ="playSample('Hihat')">Hihat Closed</button>
+        </div>
+        <div class="row justify-content-center">
+            <button type="button" class="button" onclick ="playSample('Kick')">Kick</button>
+            <button type="button" class="button" onclick ="playSample('Snare')">Snare</button>
+            <button type="button" class="button" onclick ="playSample('Tom')">Tom</button>
+        </div>
+    </div>
+
+    <script src="script.js "></script>
+
+</body>
+</html>
