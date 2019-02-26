@@ -1,18 +1,23 @@
+var canvas = document.querySelector('canvas');
+var ctx = canvas.getContext('2d');
+var mouse = {x:0,y:0};
 
-var ctx = document.getElementById('upload').onchange = function(e) {
+
+
+var c = document.getElementById('upload').onchange = function(e) {
   var img = new Image();
-  img.onload = draw;
+  img.onload = drw;
   img.onerror = failed;
   img.src = URL.createObjectURL(this.files[0]);
 };
 
 
-function draw() {
-  var canvas = document.getElementById('editor');
-  canvas.width = this.width;
-  canvas.height = this.height;
-  ctx = canvas.getContext('2d');
-  ctx.drawImage(this, 0,0);
+function drw() {
+  var cnv = document.getElementById('editor');
+  cnv.width = this.width;
+  cnv.height = this.height;
+  c = cnv.getContext('2d');
+  c.drawImage(this, 0,0);
 }
 
 function failed() {
@@ -21,13 +26,47 @@ function failed() {
 
 
 
-ctx.addEventListener('mousedown', onDown, false);
+canvas.addEventListener('mousedown', setPosition);
+canvas.addEventListener('mousemove',draw);
 
-function onDown(event){
-    cx = event.
-    cy = event.pageY;
-    console.log(cx+","+cy);
-}
+
+
+function setPosition(e) {
+
+  mouse.x = e.layerX;
+  mouse.y = e.layerY;
+
+
+
+  
+};
+
+function draw(e){
+    if (e.buttons !== 1) return; // if mouse is pressed.....
+  
+    // var color = document.getElementById("hex").value;
+  
+    ctx.beginPath(); // begin the drawing path
+  
+    ctx.lineWidth = 5; // width of line
+    ctx.lineCap = "round"; // rounded end cap
+    ctx.strokeStyle = '#f442d9'; // hex color of line
+  
+    ctx.moveTo(mouse.x, mouse.y); // from position
+    setPosition(e);
+    ctx.lineTo(mouse.x, mouse.y); // to position
+  
+    ctx.stroke(); // draw it!
+  };
+
+
+
+
+
+
+
+
+
 
 //#region Slider Value
 //slider
