@@ -18,9 +18,7 @@
   text-align:center;
  } 
  canvas {
-   
-     display: inline;
-     border: 1px solid black;
+     display: inline; 
  }
  #white{
   border-color: white;

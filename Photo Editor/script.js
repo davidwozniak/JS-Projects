@@ -1,3 +1,4 @@
+//variables
 var canvas = document.getElementById('editor');
 var context = canvas.getContext('2d');
 
@@ -7,7 +8,21 @@ imageLoader.addEventListener('change', handleImage, false);
 var mouse = {x:0,y:0};
 var colorPick;
 
+var brightChange = document.getElementById('brightness');
+var contrChange = document.getElementById('contrast');
+var saturChange = document.getElementById('saturation');
+var contrastChange = document.getElementById('contrast');
 
+//event listeners
+canvas.addEventListener('mousedown', setPosition);
+canvas.addEventListener('mouseenter', setPosition);
+canvas.addEventListener('mousemove',draw);
+brightChange.addEventListener('mousedown', changeBrightness);
+saturChange.addEventListener('mousedown', changeSaturation);
+contrChange.addEventListener('mousedown', changeContrast);
+
+
+//functions
 function handleImage(e){
   var reader = new FileReader();
   reader.onload = function(event){
@@ -23,29 +38,43 @@ function handleImage(e){
 }
 
 
-canvas.addEventListener('mousedown', setPosition);
-canvas.addEventListener('mouseenter', setPosition);
-canvas.addEventListener('mousemove',draw);
+
+function changeBrightness() {
+  $("#brightness").mousemove(function () {
+
+    var amount = $("#brightness").val()/50;
+  
+    var img = document.getElementById('editor');
+
+    img.setAttribute('style', 'filter:brightness(' + amount + '); -webkit-filter:brightness(' + amount + '); -moz-filter:brightness(' + amount + ')');
+  })
+};
 
 
+function changeContrast() {
+  $("#contrast").mousemove(function () {
+
+    var amount = $("#contrast").val()/50;
+
+    var img = document.getElementById('editor');
+  
+    img.setAttribute('style', 'filter:contrast(' + amount + '); -webkit-filter:contrast(' + amount + '); -moz-filter:contrast(' + amount + ')');
+  })
+};
 
 
+ 
+function changeSaturation() {
+    $("#saturation").mousemove(function () {
 
+      var amount = $("#saturation").val()/50;
 
-$("#rangevalue").mousemove(function () {
-
-
-  console.log($("#rangevalue").val())
-  var amount = $("#rangevalue").val()/50;
-
-  var img = document.getElementById('editor');
-
-  /* We change the brightness of the canvas itself */
-  img.setAttribute('style', 'filter:brightness(' + amount + '); -webkit-filter:brightness(' + amount + '); -moz-filter:brightness(' + amount + ')');
-
-
-
-})
+      var img = document.getElementById('editor');
+    
+      img.setAttribute('style', 'filter:saturate(' + amount + '); -webkit-filter:saturate(' + amount + '); -moz-filter:saturate(' + amount + ')');
+    })
+ };
+ 
 
 
 function color (e) {
@@ -61,20 +90,18 @@ function setPosition(e) {
 };
 
 function draw(e){
-    if (e.buttons !== 1) return; // if mouse is pressed.....
+    if (e.buttons !== 1) return; 
+
+    context.beginPath(); 
   
-    
+    context.lineWidth = 2; 
+    context.lineCap = "round"; 
+    context.strokeStyle = colorPick; 
   
-    context.beginPath(); // begin the drawing path
-  
-    context.lineWidth = 2; // width of line
-    context.lineCap = "round"; // rounded end cap
-    context.strokeStyle = colorPick; // hex color of line
-  
-    context.moveTo(mouse.x, mouse.y); // from position
+    context.moveTo(mouse.x, mouse.y); 
     setPosition(e);
-    context.lineTo(mouse.x, mouse.y); // to position
+    context.lineTo(mouse.x, mouse.y); 
   
-    context.stroke(); // draw it!
+    context.stroke(); 
   };
 
