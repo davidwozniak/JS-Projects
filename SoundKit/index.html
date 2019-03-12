@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Soundkit</title>
 </head>
 <body>
+    
     <audio src="sounds/808_clap.wav" autostart="false" id="Clap"></audio>
     <audio src="sounds/808_cowbell.wav" autostart="false" id="Cowbell"></audio>
     <audio src="sounds/808_hihatclosed.wav" autostart="false" id="Hihat"></audio>
@@ -17,25 +19,45 @@
     <audio src="sounds/808_tom.wav" autostart="false" id="Tom"></audio>
 
     
-    <nav class="navbar navbar-light bg-dark">
-            <button class="btn btn-outline-success btn-lg" type="button">Play</button>
-            <button class="btn btn-outline-danger btn-lg" type="button">Record</button>
+    <nav class="navbar navbar-light bg-dark justify-content-around">
+            <button class="btn btn-outline-success btn-lg" id="playButton" type="button">Play</button>
+            <button class="btn btn-outline-danger btn-lg" id="recordButton" type="button">Record</button>
+            <button class="btn btn-outline-warning btn-lg" id="stopButton" type="button">Stop</button>
+            
       </nav>
 
     <div class="container">
         <div class="row justify-content-center">
-            <button type="button" class="button" onclick ="playSample('Clap')">Clap</button>
-            <button type="button" class="button" onclick ="playSample('Cowbell')">Cowbell</button>
-            <button type="button" class="button" onclick ="playSample('Hihat')">Hihat Closed</button>
+            <button type="button" class="button" id ='q' onclick ="playSample('Clap')">Clap
+                <p>Q</p>
+            </button>
+            <button type="button" class="button" id="w" onclick ="playSample('Cowbell')">Cowbell
+                <p>W</p>
+            </button>
+            <button type="button" class="button" id="e" onclick ="playSample('Hihat')">Hihat
+                <p>E</p>
+            </button>
         </div>
         <div class="row justify-content-center">
-            <button type="button" class="button" onclick ="playSample('Kick')">Kick</button>
-            <button type="button" class="button" onclick ="playSample('Snare')">Snare</button>
-            <button type="button" class="button" onclick ="playSample('Tom')">Tom</button>
+            <button type="button" class="button" id="a" onclick ="playSample('Kick')">Kick
+                <p>A</p>
+            </button>
+            <button type="button" class="button" id="s" onclick ="playSample('Snare')">Snare
+                <p>S</p>
+            </button>
+            <button type="button" class="button" id="d" onclick ="playSample('Tom')">Tom
+                <p>D</p>
+            </button>
         </div>
     </div>
 
+    
+
+
+
     <script src="script.js "></script>
+    <script src="jquery.js"></script>
+    
 
 </body>
 </html>
